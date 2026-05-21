@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Нейромидин 50 | Вечер AI-анимации</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="deck" class="deck" aria-live="polite">
+      <section id="slide" class="slide"></section>
+
+      <nav class="deck-nav" aria-label="Навигация презентации">
+        <button id="prevBtn" class="nav-hit nav-prev" type="button" aria-label="Предыдущий слайд"></button>
+        <button id="nextBtn" class="nav-hit nav-next" type="button" aria-label="Следующий слайд"></button>
+      </nav>
+
+      <footer class="chrome">
+        <div class="brand-mini">
+          <span class="brand-mark">50</span>
+          <span>Нейромидин</span>
+        </div>
+        <div class="slide-count" id="counter">01 / 48</div>
+        <div class="progress-track"><div id="progress" class="progress"></div></div>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
