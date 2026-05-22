@@ -7,12 +7,12 @@ const cases = [
     number: "04",
     artworkExt: "png",
     finals: [
-      { id: "case04b", label: "Версия II" },
+      { id: "case04b", label: "" },
     ],
   },
   { id: "case05", number: "05", artworkExt: "png", finals: [{ id: "case05", label: "" }] },
-  { id: "case06a", number: "06", variant: "Версия I", artworkExt: "jpg", skipPhoto: true, skipVideo: true, finals: [{ id: "case06a", label: "Версия I" }] },
-  { id: "case06b", number: "06", variant: "Версия II", artworkExt: "png", finals: [{ id: "case06b", label: "Версия II" }] },
+  { id: "case06a", number: "06", artworkExt: "jpg", skipPhoto: true, skipVideo: true, finals: [{ id: "case06a", label: "" }] },
+  { id: "case06b", number: "06", artworkExt: "png", finals: [{ id: "case06b", label: "" }] },
   { id: "case07", number: "07", artworkExt: "png", finals: [{ id: "case07", label: "" }] },
   { id: "case08", number: "08", artworkExt: "png", finals: [{ id: "case08", label: "" }] },
   {
@@ -21,7 +21,7 @@ const cases = [
     artworkExt: "png",
     variant: "",
     finals: [
-      { id: "case09b", label: "Версия II" },
+      { id: "case09b", label: "" },
     ],
   },
   { id: "case10a", number: "10", artworkExt: "png", finals: [{ id: "case10a", label: "" }] },
