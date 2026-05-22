@@ -11,8 +11,7 @@ const cases = [
     ],
   },
   { id: "case05", number: "05", artworkExt: "png", finals: [{ id: "case05", label: "" }] },
-  { id: "case06a", number: "06", artworkExt: "jpg", skipPhoto: true, skipVideo: true, finals: [{ id: "case06a", label: "" }] },
-  { id: "case06b", number: "06", artworkExt: "png", finals: [{ id: "case06b", label: "" }] },
+  { id: "case06b", number: "06", artworkExt: "png", skipCase: true, skipPhoto: true, finals: [{ id: "case06b", label: "" }] },
   { id: "case07", number: "07", artworkExt: "png", finals: [{ id: "case07", label: "" }] },
   { id: "case08", number: "08", artworkExt: "png", finals: [{ id: "case08", label: "" }] },
   {
@@ -28,6 +27,7 @@ const cases = [
 ].map((item) => ({
   ...item,
   variant: item.variant || "",
+  skipCase: Boolean(item.skipCase),
   skipPhoto: Boolean(item.skipPhoto),
   skipVideo: Boolean(item.skipVideo),
   video: `./assets/videos/${item.id}.mp4`,
@@ -44,7 +44,8 @@ const openingSlide = {
 const slides = [
   openingSlide,
   ...cases.flatMap((item) => {
-    const itemSlides = [{ type: "case", ...item }];
+    const itemSlides = [];
+    if (!item.skipCase) itemSlides.push({ type: "case", ...item });
     if (!item.skipPhoto) itemSlides.push({ type: "photo", ...item });
     if (!item.skipVideo) itemSlides.push({ type: "video", ...item });
     item.finals.forEach((final) => {
