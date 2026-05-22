@@ -7,12 +7,11 @@ const cases = [
     number: "04",
     artworkExt: "png",
     finals: [
-      { id: "case04a", label: "Версия I" },
       { id: "case04b", label: "Версия II" },
     ],
   },
   { id: "case05", number: "05", artworkExt: "png", finals: [{ id: "case05", label: "" }] },
-  { id: "case06a", number: "06", variant: "Версия I", artworkExt: "jpg", finals: [{ id: "case06a", label: "Версия I" }] },
+  { id: "case06a", number: "06", variant: "Версия I", artworkExt: "jpg", skipPhoto: true, skipVideo: true, finals: [{ id: "case06a", label: "Версия I" }] },
   { id: "case06b", number: "06", variant: "Версия II", artworkExt: "png", finals: [{ id: "case06b", label: "Версия II" }] },
   { id: "case07", number: "07", artworkExt: "png", finals: [{ id: "case07", label: "" }] },
   { id: "case08", number: "08", artworkExt: "png", finals: [{ id: "case08", label: "" }] },
@@ -22,7 +21,6 @@ const cases = [
     artworkExt: "png",
     variant: "",
     finals: [
-      { id: "case09a", label: "Версия I" },
       { id: "case09b", label: "Версия II" },
     ],
   },
@@ -30,6 +28,8 @@ const cases = [
 ].map((item) => ({
   ...item,
   variant: item.variant || "",
+  skipPhoto: Boolean(item.skipPhoto),
+  skipVideo: Boolean(item.skipVideo),
   video: `./assets/videos/${item.id}.mp4`,
   poster: `./assets/posters/${item.id}.jpg`,
   artwork: `./assets/artworks/${item.id}.${item.artworkExt}`,
@@ -43,17 +43,20 @@ const openingSlide = {
 
 const slides = [
   openingSlide,
-  ...cases.flatMap((item) => [
-    { type: "case", ...item },
-    { type: "photo", ...item },
-    { type: "video", ...item },
-    ...item.finals.map((final) => ({
-      type: "answer",
-      ...item,
-      final: `./assets/finals/${final.id}.png`,
-      finalLabel: final.label,
-    })),
-  ]),
+  ...cases.flatMap((item) => {
+    const itemSlides = [{ type: "case", ...item }];
+    if (!item.skipPhoto) itemSlides.push({ type: "photo", ...item });
+    if (!item.skipVideo) itemSlides.push({ type: "video", ...item });
+    item.finals.forEach((final) => {
+      itemSlides.push({
+        type: "answer",
+        ...item,
+        final: `./assets/finals/${final.id}.png`,
+        finalLabel: final.label,
+      });
+    });
+    return itemSlides;
+  }),
   openingSlide,
 ];
 
