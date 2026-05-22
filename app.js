@@ -87,25 +87,21 @@ function renderOpening(slide) {
 }
 
 function renderCase(slide) {
-  const hasVariant = slide.variant && slide.variant !== "Основная версия";
   slideEl.className = "slide case-only enter";
   slideEl.innerHTML = `
     <div class="case-lockup">
       <div class="eyebrow">Клинический ребус</div>
       <div class="case-number">${slide.number}</div>
       <h1>Кейс ${slide.number}</h1>
-      ${hasVariant ? `<div class="version-pill">${slide.variant}</div>` : ""}
     </div>
   `;
 }
 
 function renderPhoto(slide) {
-  const hasVariant = slide.variant && slide.variant !== "Основная версия";
   slideEl.className = "slide image-stage photo-stage enter";
   slideEl.innerHTML = `
     <header class="minimal-head">
       <div class="eyebrow">Кейс ${slide.number}</div>
-      ${hasVariant ? `<div class="video-version">${slide.variant}</div>` : ""}
     </header>
     <figure class="gallery-frame">
       <img src="${slide.artwork}" alt="" />
