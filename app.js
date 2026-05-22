@@ -11,7 +11,7 @@ const cases = [
     ],
   },
   { id: "case05", number: "05", artworkExt: "png", finals: [{ id: "case05", label: "" }] },
-  { id: "case06b", number: "06", artworkExt: "png", skipCase: true, skipPhoto: true, finals: [{ id: "case06b", label: "" }] },
+  { id: "case06b", number: "06", artworkExt: "png", finals: [{ id: "case06b", label: "" }] },
   { id: "case07", number: "07", artworkExt: "png", finals: [{ id: "case07", label: "" }] },
   { id: "case08", number: "08", artworkExt: "png", finals: [{ id: "case08", label: "" }] },
   {
