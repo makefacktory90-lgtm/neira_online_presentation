@@ -41,6 +41,12 @@ const openingSlide = {
   poster: "./assets/posters/opening.jpg",
 };
 
+const closingSlide = {
+  ...openingSlide,
+  overlayTitle: "Креативный контент с ИИ для врачей",
+  overlayContact: "Алина +7 916 390 20 23",
+};
+
 const slides = [
   openingSlide,
   ...cases.flatMap((item) => {
@@ -58,7 +64,7 @@ const slides = [
     });
     return itemSlides;
   }),
-  openingSlide,
+  closingSlide,
 ];
 
 let index = 0;
@@ -82,6 +88,12 @@ function renderOpening(slide) {
   slideEl.className = "slide opening enter";
   slideEl.innerHTML = `
     <video class="stage-video" src="${slide.video}" poster="${slide.poster}" playsinline preload="auto" muted></video>
+    ${slide.overlayTitle ? `
+      <div class="opening-contact">
+        <div class="opening-contact__title">${slide.overlayTitle}</div>
+        <div class="opening-contact__line">${slide.overlayContact}</div>
+      </div>
+    ` : ""}
   `;
   wireVideo(true);
 }

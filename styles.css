@@ -93,6 +93,34 @@ button:focus-visible {
   pointer-events: none;
 }
 
+.opening-contact {
+  position: absolute;
+  left: clamp(24px, 3vw, 44px);
+  right: clamp(24px, 3vw, 44px);
+  bottom: clamp(24px, 3.5vw, 44px);
+  z-index: 3;
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  padding: 18px 22px;
+  background: linear-gradient(180deg, rgba(2, 7, 17, 0.1), rgba(2, 7, 17, 0.74));
+  border: 1px solid rgba(244, 217, 141, 0.28);
+  backdrop-filter: blur(10px);
+}
+
+.opening-contact__title {
+  color: var(--gold-soft);
+  font-size: clamp(18px, 1.9vw, 30px);
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.opening-contact__line {
+  color: rgba(248, 239, 217, 0.92);
+  font-size: clamp(14px, 1.4vw, 22px);
+  line-height: 1.1;
+}
+
 .opening-title {
   display: grid;
   place-items: center;
@@ -473,6 +501,12 @@ h1 {
     --stage-pad-top: 18px;
     --stage-pad-bottom: 24px;
     min-height: 100svh;
+  }
+  .opening-contact {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    padding: 14px 16px;
   }
   .video-header { align-items: flex-start; flex-direction: column; }
   .chrome { display: none; }
